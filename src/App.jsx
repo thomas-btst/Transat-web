@@ -194,18 +194,33 @@ const Logo = ({ size = "md" }) => {
   );
 };
 
-const InputField = ({ icon: Icon, type = "text", placeholder }) => (
-  <div className="relative w-full">
-    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-      <Icon size={20} />
+const InputField = ({ icon: Icon, type = "text", placeholder }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const isPassword = type === "password";
+  const inputType = isPassword ? (showPassword ? "text" : "password") : type;
+
+  return (
+    <div className="relative w-full">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+        <Icon size={20} />
+      </div>
+      <input 
+        type={inputType} 
+        placeholder={placeholder}
+        className={`w-full py-4 pl-12 pr-${isPassword ? '12' : '4'} bg-white rounded-2xl border border-gray-200 shadow-sm focus:border-[#FF6B4A] focus:ring-4 focus:ring-[#FF6B4A]/10 outline-none text-[#1A1A1A] font-medium transition-all placeholder:text-gray-400`}
+      />
+      {isPassword && (
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none cursor-pointer"
+        >
+          {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+        </button>
+      )}
     </div>
-    <input 
-      type={type} 
-      placeholder={placeholder}
-      className={`w-full py-4 pl-12 pr-4 bg-white rounded-2xl border border-gray-200 shadow-sm focus:border-[#FF6B4A] focus:ring-4 focus:ring-[#FF6B4A]/10 outline-none text-[#1A1A1A] font-medium transition-all placeholder:text-gray-400`}
-    />
-  </div>
-);
+  );
+};
 
 const Button = ({ children, onClick, variant = "primary", className = "" }) => {
   const baseStyle = "w-full py-4 rounded-full font-bold transition-all transform active:scale-[0.98] cursor-pointer";
@@ -392,15 +407,12 @@ const WeatherPage = ({ onBack }) => {
 
                           <div className="flex items-center gap-4 flex-grow justify-end">
                               <span className="text-gray-400 font-medium w-8 text-right">{day.min}</span>
-                              
-                              {/* Temperature Bar */}
                               <div className="w-24 h-1.5 bg-gray-100 rounded-full relative overflow-hidden">
                                   <div 
                                       className="absolute h-full rounded-full bg-gradient-to-r from-blue-300 to-orange-300"
                                       style={{ left: '20%', right: '20%' }}
                                   ></div>
                               </div>
-                              
                               <span className="text-[#1A1A1A] font-bold w-8">{day.max}</span>
                           </div>
                       </div>
@@ -1027,6 +1039,13 @@ const PlanningPage = ({ onBack }) => {
                     </div>
                 </div>
             </div>
+            
+             {/* Navigation Mois à droite */}
+            <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+                 <button className="p-1 hover:bg-gray-100 rounded-full cursor-pointer transition-colors text-gray-500"><ChevronLeft size={18} /></button>
+                 <span className="text-sm font-bold text-[#1A1A1A] uppercase tracking-wide px-2">Nov. 2025</span>
+                 <button className="p-1 hover:bg-gray-100 rounded-full cursor-pointer transition-colors text-gray-500"><ChevronRight size={18} /></button>
+            </div>
         </div>
       </div>
 
@@ -1219,7 +1238,7 @@ const App = () => {
                             className={`${theme.cardBg} rounded-[1.5rem] p-6 shadow-sm border border-gray-100 flex flex-col h-52 hover:shadow-md transition-all cursor-pointer group`}
                         >
                             <div className="flex justify-between items-center mb-2">
-                                <h2 className="text-xl font-bold text-[#1A1A1A]">Menu du midi</h2>
+                                <h2 className="text-xl font-bold text-[#1A1A1A]">Menu du jour</h2>
                                 <ArrowRight size={20} className="text-gray-300 group-hover:text-[#FF6B4A] transition-colors" />
                             </div>
                             <div className="flex-grow flex flex-col justify-center gap-2">
