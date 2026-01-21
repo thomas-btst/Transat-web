@@ -1,16 +1,82 @@
-# React + Vite
+# Transat Web 🌊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Transat Web** is a web application designed for **IMT Atlantique students**. Its goal is to centralize and simplify access to all useful information related to the campus (student life, services, events, practical information, etc.).
 
-Currently, two official plugins are available:
+This repository contains **only the frontend part** of the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Project Goals
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Provide a single access point for campus-related information
+- Improve the student experience through a clear and intuitive interface
+- Centralize information that is often scattered across multiple platforms
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features (Frontend)
+
+- Modern user interface built with **React.js**
+- Smooth navigation between different sections
+- Pages dedicated to campus information
+- Responsive design (mobile, tablet, desktop)
+
+---
+
+## 🛠️ Technologies Used
+
+- **React.js**
+- **JavaScript (ES6+)**
+- **HTML5 / CSS3**
+- **Node.js & npm**
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/thomas-btst/Transat-web
+```
+
+2. Go to the project directory:
+
+```bash
+cd Transat-web
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** and was developped as a part of our formation.
+
+---
+
+## 👤 Author
+
+Project developed by **Thomas.B & Alexandre & Mateo **
+For **IMT Atlantique students**.
+
+---
+
+## 🤖 Code Generation
+
+This project’s codebase was **initially generated with the help of Google Gemini** and then adapted, structured, and refined by the project authors.
+
+---
+
+✨ _Transat Web – Campus information, all in one place._
